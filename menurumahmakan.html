@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indonesian Cuisine Menu</title>
+    <link rel="stylesheet" href="menurumahmakan.css">
+    <script>
+        function calculateTotalAndSubmit(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            const items = document.querySelectorAll('input[name="item[]"]:checked');
+            let total = 0;
+            items.forEach(item => {
+                total += parseFloat(item.value.split(' - $')[1]);
+            });
+            sessionStorage.setItem('totalPrice', total.toFixed(2)); // Store the total price in sessionStorage
+            window.location.href = 'pembayaran.html'; // Redirect to the payment page
+        }
+    </script>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Select Your Dishes</h1>
+        <form onsubmit="calculateTotalAndSubmit(event)">
+            <fieldset>
+                <legend>Select Dishes</legend>
+                <div class="menu-item">
+                    <img src="nasigoreng.jpg" alt="Nasi Goreng">
+                    <label>
+                        <input type="checkbox" name="item[]" value="Nasi Goreng - $8.00">
+                        Nasi Goreng - $8.00
+                    </label>
+                </div>
+                <div class="menu-item">
+                    <img src="sotoayam.jpg" alt="Soto Ayam">
+                    <label>
+                        <input type="checkbox" name="item[]" value="Soto Ayam - $7.00">
+                        Soto Ayam - $7.00
+                    </label>
+                </div>
+                <div class="menu-item">
+                    <img src="ayamgeprek.jpg" alt="Ayam Geprek">
+                    <label>
+                        <input type="checkbox" name="item[]" value="Ayam Geprek - $8.00">
+                        Ayam Geprek - $8.00
+                    </label>
+                </div>
+                <div class="menu-item">
+                    <img src="rendang.jpg" alt="Rendang">
+                    <label>
+                        <input type="checkbox" name="item[]" value="Rendang - $9.00">
+                        Rendang - $9.00
+                    </label>
+                </div>
+                <div class="menu-item">
+                    <img src="gudeg.jpg" alt="Gudeg">
+                    <label>
+                        <input type="checkbox" name="item[]" value="Gudeg - $8.50">
+                        Gudeg - $8.50
+                    </label>
+                </div>
+                <div class="menu-item">
+                    <img src="satay.jpg" alt="Satay">
+                    <label>
+                        <input type="checkbox" name="item[]" value="Satay - $10.00">
+                        Satay - $10.00
+                    </label>
+                </div>
+                <button type="submit">Place Order</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

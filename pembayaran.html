@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="menurumahmakan.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalPrice = sessionStorage.getItem('totalPrice'); // Retrieve the total price from sessionStorage
+            if (totalPrice) {
+                document.getElementById('totalPriceDisplay').textContent = 'Total to Pay: $' + totalPrice;
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Payment Options</h1>
+        <p id="totalPriceDisplay"></p> <!-- Where the total price will be displayed -->
+        <form action="makasih.html" method="POST">
+            <fieldset>
+                <legend>Choose Your Payment Method</legend>
+                <label>
+                    <input type="radio" name="payment" value="Credit Card" checked>
+                    Credit Card
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="PayPal">
+                    PayPal
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="Bank Transfer">
+                    Bank Transfer
+                </label>
+                <button type="submit">Confirm Payment</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

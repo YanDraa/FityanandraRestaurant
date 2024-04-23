@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Reservation</title>
+    <link rel="stylesheet" href="rumahmakan.css">
+</head>
+<body>
+    <div class="reservation-container">
+        <h1>Table Reservation</h1>
+        <form action="menurumahmakan.html" method="POST">
+            <fieldset>
+                <legend>Reservation Details</legend>
+                <label for="name">Name:
+                    <input type="text" id="name" name="name" required>
+                </label>
+                <label for="date">Date:
+                    <input type="date" id="date" name="date" required>
+                </label>
+                <label for="time">Time:
+                    <input type="time" id="time" name="time" min="12:00" max="22:00" required>
+                </label>
+                <label for="people">Number of People:
+                    <input type="number" id="people" name="people" min="1" max="20" required>
+                </label>
+                <button type="submit">Submit Reservation</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
